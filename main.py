@@ -1,31 +1,17 @@
-text = input("Text: ")
-secret = int(input("Secret: "))
+import math
 
-def szyfrCezara(text, secret):
-    arr = text
-    nowy = ""
-    for i in range(len(arr)):
-        cyfra = ord(arr[i])
-        cyfra += int(secret)
-        if cyfra > ord("z"):
-            cyfranowa = ord("a") + ((cyfra+secret)-ord("z"))
-        zmienionyCiag = chr(cyfranowa)
-        nowy += zmienionyCiag
-    print(nowy)
+liczba = int(input("Podaj liczbę do której mam szukać: "))
+tab = [True for i in range (liczba+1)]
 
-def deszyfrCezara(szyfr, secret):
-    arr = szyfr
-    nowy = ""
-    for i in range(len(arr)):
-        cyfra = ord(arr[i])
-        cyfra -= int(secret)
-        if cyfra > ord("z"):
-            cyfranowa = ord("a") + ((cyfra+secret)-ord("z"))
-            cyfra = cyfranowa
-        zmienionyCiag = chr(cyfra)
-        nowy += zmienionyCiag
-    print(nowy)
+def liczbypierwsze(tab, liczba):
+    is_prime = tab
+    is_prime[0] = False
+    is_prime[1] = False
+    for i in range(2, int(math.sqrt(liczba))+1):
+        if tab[i] == True:
+            print(i, end=" ") #Wyświetla
+            for j in range(i*i, liczba+1, i):
+                tab[j] = False
+    return tab
 
-
-
-deszyfrCezara(text, secret)
+liczbypierwsze(tab, liczba)
