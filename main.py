@@ -1,7 +1,8 @@
 import math
 
 liczba = int(input("Podaj liczbę do której mam szukać: "))
-tab = [True for i in range (liczba+1)]
+nowaliczba = liczba*liczba
+tab = [True for i in range (nowaliczba+1)]
 
 def liczbypierwsze(tab, liczba):
     is_prime = tab
@@ -14,4 +15,4 @@ def liczbypierwsze(tab, liczba):
                 tab[j] = False
     return tab
 
-liczbypierwsze(tab, liczba)
+liczbypierwsze(tab, nowaliczba)
