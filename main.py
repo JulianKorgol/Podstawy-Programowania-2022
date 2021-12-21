@@ -1,26 +1,21 @@
-from math import sqrt
-##Można działać na wielu plikach w jednym programie/skrypcie/funkcji.
+# Zadanie1
+text = input("Text: ")
+secret = int(input("Secret: "))
 
-#Generowanie liczb losowych
-#Znajdowanie liczb losowych
-#Znajdowanie konkretnej liczby z tablicy liczb pierwszych
+def szyfrCezara(text, secret):
+    newsecret = secret % 26
+    nowy = ""
+    for n in text:
+        if ord(n) + newsecret > ord('z') or (ord('Z') < ord(n) + newsecret < ord('a')):
+            nowy += chr(ord(n) + newsecret - 26)
+        else:
+            nowy += chr(ord(n) + newsecret)
+    return nowy
 
-def eratostenes(n):
-    is_prime = [True] * (n+1)
-    is_prime[0] = False
-    is_prime[1] = False
-    for i in range(2, int(sqrt(n))+1):
-        if is_prime[i]:
-            for j in range(i*i, n+1, i):
-                is_prime[j] = False
-    primes = []
-    for i in range(n):
-        if is_prime[i]:
-            primes.append(i)
-    return primes
 
-arr = eratostenes(618)
+print(szyfrCezara(text, secret))
 
+# Zadanie2
 def binarysearch(arr, x):
     left = 0
     right = len(arr) - 1
@@ -34,27 +29,46 @@ def binarysearch(arr, x):
             return mid
     return -1
 
-n = 618
-x = 331
-arr = eratostenes(n)
-index = binarysearch(arr, x)
-print(index)
+arr = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+z = 8
 
-#importowanie funkcji z innego pliku
-#from cezar import cezar
-#from revision.cezar import cezar
-#from revision.binary_search import arr
-#Szczegółowe informacje na zdjęciu.
+print(binarysearch(arr, z))
 
-#Zasady czystego kodu:
-#importy
-#definicje funkcji
-#deklaracje zmiennych
-#program(ciało programu)
+# Zadanie3
+def myBigTestFunction(text):
+    lista = []
+    for n in text:
+        lista.append(ord(n))
+    maximum = max(lista)
+    return maximum
 
-#Na sprawdzian:
-#ASCI
-#Wyszukiwanie ze zbioru
-#Konwersja (szyfrowanie), konwertowanie na liczby i póxniejsze operacje na nim.
+slowo = input()
+print(myBigTestFunction(slowo))
 
-#Można korzystać z notatek i internetu, jednak musimy rozumieć co to robi.
+# Zadanie4
+from math import sqrt
+
+def sito(n):
+    is_prime = [True] * (n+1)
+    is_prime[0] = False
+    is_prime[1] = False
+    for i in range(2, int(sqrt(n))+1):
+        if is_prime[i]:
+            for j in range(i*i, n+1, i):
+                is_prime[j] = False
+    primes = []
+    for i in range(n+1):
+        if is_prime[i]:
+            primes.append(i)
+    return primes
+
+def myBigTestFunction(text):
+    lista = []
+    for n in text:
+        lista.append(ord(n))
+    minimum = min(lista)
+    return minimum
+
+napis = input()
+najmniejszaWartosc = myBigTestFunction(napis)
+print(sito(najmniejszaWartosc))
