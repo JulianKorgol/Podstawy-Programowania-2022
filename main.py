@@ -1,60 +1,33 @@
-# Zadanie 8.7 -> Nie działa
-# liczbaLiczb = int(input())
-# lista = []
+# Przykład 1
+# def recursive_sum(a, b):
+#     if a == 0:
+#         return b
+#     else:
+#         return recursive_sum(a-1, b+1)
 #
 #
-# for i in range(liczbaLiczb):
-#     ciag = input().split()
-#     imie = ciag[0]
-#     wzrost = int(ciag[1])
-#     razem = [imie, wzrost]
-#     lista.append(razem)
+# print(recursive_sum(4, 6))
+
+
+# Przykład 2
+
+# def factorial(a):
+#     if a == 0:
+#         return 1
+#     else:
+#         return a * factorial(a-1)
 #
-# def najwieksza(zbior):
-#     funkcyjna = []
-#     for i in range(liczbaLiczb):
-#         wartosc = zbior[i][1]
-#         funkcyjna.append(wartosc)
-#     najwieksza = max(funkcyjna)
-#     mojIndex = funkcyjna.index(najwieksza)
-#     return mojIndex
-#
-# mojIndex = najwieksza(lista)
-# print(lista[mojIndex])
+# print(factorial(5))
 
 
-# Zadanie 8.8
-# liczbaLiczb = int(input())
-# lista = []
-#
-# for i in range(liczbaLiczb):
-#     liczba = int(input())
-#     lista.append(liczba)
-#
-# def Average(liczba):
-#     avg = sum(liczba) / len(liczba)
-#     return avg
-#
-# print(Average(lista))
+# Zadania 1
 
+def Fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return Fibonacci(n-1) + Fibonacci(n-2)
 
-# Zadanie 8.10
-liczbaLiczb = int(input())
-lista = []
-
-
-for i in range(liczbaLiczb):
-    ciag = input().split()
-    imie = ciag[0]
-    waga = int(ciag[1])
-    razem = [imie, waga]
-    lista.append(razem)
-    lista.sort()
-
-def listy(zbior):
-    najmniejsza = zbior[0]
-    lista1 = [x for x in zbior if x >= 20]
-    return lista1
-
-
-print(listy(lista))
+print(Fibonacci(7))
