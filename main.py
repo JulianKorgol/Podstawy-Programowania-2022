@@ -1,5 +1,11 @@
-# tab = [9, 1, 2, 7, 3, 5, 8, 7]
-tab = [9, 1, 2, 7, 3, 5, 8, 7]
+# Zadanie "Nagroda dla uczniów"
+# Kod nie jest skończony, ale wysyłam tyle ile mam.
+# Nie dokońca wszystko rozumiem i niestety jestem chory.
+import math
+
+liczbaKlas = int(input())
+dane = ""
+klasy = []
 
 def merge(arr, l, p):
     i_l = 0
@@ -24,34 +30,27 @@ def merge(arr, l, p):
 
 
 
-def m_sort(tab):
+def sortowanie(tab):
     if len(tab) > 1:
         s = len(tab)//2
         left = tab[:s]
         right = tab[s:]
-        m_sort(left)
-        m_sort(right)
+        sortowanie(left)
+        sortowanie(right)
         merge(tab, left, right)
 
 
-m_sort(tab)
-print(tab)
 
-# print(tab[0])
-# print(tab[0:2])
+# Przyjmowanie danych i podział danych na klasy
+for i in range(liczbaKlas):
+    dane = ""
+    while dane != "-":
+        dane = input()
+        klasy.append(dane.split())
+    posortowane = sortowanie(klasy)
+    dlugoscPosortowane = math.ceil(len(posortowane))/10
+    for i in range(dlugoscPosortowane-1):
+        doPrintu = posortowane[i][0]
+        doPrintu += posortowane[i][1]
+    print("-")
 
-#     i_l = i_p = i = 0
-#     1. Dopóki i_l < len(l) i i_p < len(p)
-#           jeśli wartość z lewej pod i_l
-#           jest mniejsza od wartości z prawej pod i_p
-#               l[i_l] < p[i_p]
-#                   arr[i]=l[i_l]
-#                   i_l += 1
-#               w przeciwnym:
-#                   arr[i] = p[i_p]
-#                   i_p += 1
-#               i += 1
-#   2. while i_l < len(l):
-#       dodajemy l[i_l] do arr
-#           i+= 1
-#           i_l += 1s
