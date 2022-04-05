@@ -1,6 +1,3 @@
-# Zadanie "Nagroda dla uczniów"
-# Kod nie jest skończony, ale wysyłam tyle ile mam.
-# Nie dokońca wszystko rozumiem i niestety jestem chory.
 import math
 
 liczbaKlas = int(input())
@@ -53,4 +50,3 @@ for i in range(liczbaKlas):
         doPrintu = posortowane[i][0]
         doPrintu += posortowane[i][1]
     print("-")
-
