@@ -9,7 +9,8 @@ def bucketSort(tab):
     for i in range(len(tab)):
         bucket.append([])
     for liczba in tab:
-        index = int(10 * liczba)
+        bucket_range = ((najwieksza-najmniejsza)/len(tab))
+        index = int((najwieksza-najmniejsza)/bucket_range)
         bucket[index].append(liczba)
     for liczba2 in range(len(tab)):
         bucket[liczba2] = sorted(bucket[liczba2])
