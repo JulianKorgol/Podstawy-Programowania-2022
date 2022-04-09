@@ -9,7 +9,10 @@ def merge(arr, l, p):
     i_p = 0
     i = 0
     while i_l < len(l) and i_p < len(p):
-        if l[i_l] < p[i_p]:
+        if l[i_l][2] > p[i_p][2]:
+            arr[i] = l[i_l]
+            i_l += 1
+        elif l[i_l][2] == p[i_p][2]:
             arr[i] = l[i_l]
             i_l += 1
         else:
@@ -41,12 +44,16 @@ def sortowanie(tab):
 # Przyjmowanie danych i podział danych na klasy
 for i in range(liczbaKlas):
     dane = ""
+    klasy = []
     while dane != "-":
         dane = input()
         klasy.append(dane.split())
-    posortowane = sortowanie(klasy)
-    dlugoscPosortowane = math.ceil(len(posortowane))/10
-    for i in range(dlugoscPosortowane-1):
-        doPrintu = posortowane[i][0]
-        doPrintu += posortowane[i][1]
+    klasy.pop()
+    sortowanie(klasy)
+    dlugoscPosortowane = math.ceil(len(klasy)/10)
+    doPrintu = ""
+    for i in range(dlugoscPosortowane):
+        doPrintu = klasy[i][0]
+        doPrintu += klasy[i][1]
+        print(doPrintu)
     print("-")
