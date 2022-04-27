@@ -41,3 +41,10 @@ def zadanie(p, d):
 
 
 zadanie(p, d)
+
+
+
+
+
+
+
